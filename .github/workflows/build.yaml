@@ -25,13 +25,14 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
-        with:
-          server: ftp.strato.de
-          username: ${{ secrets.STRATO_USER }}
-          password: ${{ secrets.STRATO_PASS }}
-          local-dir: ./dist/
-          server-dir: /
-          protocol: ftps
-          secure: true
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Deploy to Strato via FTPS
+        run: |
+          lftp -u ${{ secrets.STRATO_USER }},${{ secrets.STRATO_PASS }} ftp.strato.de -e "
+          set ftp:ssl-allow true;
+          set ssl:verify-certificate false;
+          mirror -R ./dist/ /;
+          bye
+          "
