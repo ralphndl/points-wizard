@@ -24,13 +24,13 @@ jobs:
 
       - name: Build project
         run: npm run build
-
-      - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
+        
+      - name: Deploy via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: ${{ secrets.STRATO_HOST }}
+          server: ftp.strato.de
           username: ${{ secrets.STRATO_USER }}
           password: ${{ secrets.STRATO_PASS }}
-          port: 22
-          local_path: ./dist/*
-          remote_path: /
+          local-dir: ./dist/
+          server-dir: /
+          protocol: ftps
