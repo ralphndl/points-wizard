@@ -32,5 +32,5 @@ jobs:
           username: ${{ secrets.STRATO_USER }}
           password: ${{ secrets.STRATO_PASS }}
           port: 22
-          local_path: ./dist/*
+          local_path: ./dist/
           remote_path: /
