@@ -25,8 +25,11 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Upload production-ready build
-        uses: actions/upload-artifact@v4
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
         with:
-          name: dist
-          path: dist
+          server: ${{ secrets.STRATO_HOST }}
+          username: ${{ secrets.STRATO_USER }}
+          password: ${{ secrets.STRATO_PASS }}
+          local-dir: ./dist
+          server-dir: / 
