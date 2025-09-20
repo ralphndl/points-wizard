@@ -1,0 +1,120 @@
+:root {
+  /* Design Tokens */
+  --color-bg-box: #2d3748;
+  --color-bg-input: #1a202c;
+  --color-border: #555;
+  --color-text: #f0f0f0;
+  --color-primary: #3182ce;
+  --color-secondary: #718096;
+
+  --radius-s: 6px;
+  --radius-m: 12px;
+
+  --spacing-s: 0.5rem;
+  --spacing-m: 1rem;
+}
+
+/* Box */
+.box {
+  padding: var(--spacing-m);
+  border-radius: var(--radius-m);
+  background: var(--color-bg-box);
+  color: var(--color-text);
+  width: 100%;
+  margin-bottom: var(--spacing-m);
+}
+
+.creditcard-box {
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+}
+
+/* Container */
+.info-box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-m);
+}
+
+.info-box-container > * {
+  width: 100%;
+}
+
+.info-box-container.result {
+  width: 100%;
+}
+
+.info-box-container.result > * {
+  flex: 1 1 100%;
+  max-width: 100%;
+}
+
+/* Labels */
+.form-label {
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+
+/* Input & Select Fields */
+.input-field,
+.select-field {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-input);
+  color: var(--color-text);
+  font-size: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.input-field:focus,
+.select-field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+/* Rows */
+.input-row,
+.select-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  margin-bottom: var(--spacing-m);
+  width: 100%;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-s);
+  margin-bottom: var(--spacing-s);
+  cursor: pointer;
+}
+
+.checkbox-input {
+  transform: scale(1.2);
+  accent-color: var(--color-primary);
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius-s);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-secondary {
+  background: var(--color-secondary);
+  color: white;
+}

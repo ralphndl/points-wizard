@@ -1,0 +1,19 @@
+.app-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; 
+  gap: 20px;
+  max-width: 1400px;
+  margin: 2rem auto;
+  align-items: stretch;
+  justify-items: center;
+}
+
+@media (max-width: 768px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .app-layout > * {
+    width: 100%;
+  }
+}
