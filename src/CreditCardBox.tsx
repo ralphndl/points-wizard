@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { InfoBox } from "./InfoBox";
 import { CheckboxRow } from "./CheckboxRow";
 import { KeyValueRow } from "./KeyValueRow";
@@ -17,7 +15,6 @@ type Boost = {
 
 type CreditCardProps = {
   cardName: string;
-  selected?: boolean;
   onSelect?: () => void;
   boost?: Boost;
   rewards?: Reward[];
@@ -25,7 +22,6 @@ type CreditCardProps = {
 
 export function CreditCardBox({
   cardName: title,
-  selected,
   onSelect,
   boost,
   rewards = [],

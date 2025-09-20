@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { useState, useMemo } from "react";
 import { PurchaseBox } from "./PurchaseBox";
 import { CreditCardBox } from "./CreditCardBox";
@@ -29,10 +27,6 @@ export default function App() {
   };
 
   // --- States: nur Inputs ---
-  const [selectedCard, setSelectedCard] = useState<
-    "amexppcc" | "milesmorecc" | "amexcc" | null
-  >(null);
-
   const [purchase, setPurchase] = useState({
     amount: "10",
     avis: false,
@@ -45,7 +39,7 @@ export default function App() {
     factorBoost: 2 / 3,
   });
 
-  const [milesmorecc, setMilesmorecc] = useState<Card>({
+  const [milesmorecc, ] = useState<Card>({
     boostActive: false,
     factorDefault: 1 / 2,
     factorBoost: 1 / 2,
@@ -149,7 +143,6 @@ export default function App() {
       avis: false,
       worldshop: false,
     });
-    setSelectedCard(null);
   };
 
   // --- Render ---
@@ -166,8 +159,6 @@ export default function App() {
       <div className="info-box-container">
         <CreditCardBox
           cardName="AMEX Payback"
-          selected={selectedCard === "amexppcc"}
-          onSelect={() => setSelectedCard("amexppcc")}
           boost={{
             label: "MAX Boost",
             active: amexppcc.boostActive,
@@ -182,15 +173,11 @@ export default function App() {
 
         <CreditCardBox
           cardName="DKB M&M"
-          selected={selectedCard === "milesmorecc"}
-          onSelect={() => setSelectedCard("milesmorecc")}
           rewards={[{ label: "M&M Meilen", value: milesmoreccMiles }]}
         />
 
         <CreditCardBox
           cardName="AMEX"
-          selected={selectedCard === "amexcc"}
-          onSelect={() => setSelectedCard("amexcc")}
           boost={{
             label: "Turbo",
             active: amexcc.boostActive,
