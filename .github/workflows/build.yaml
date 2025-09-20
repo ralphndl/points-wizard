@@ -24,7 +24,7 @@ jobs:
 
       - name: Build project
         run: npm run build
-        
+
       - name: Deploy via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
@@ -34,3 +34,4 @@ jobs:
           local-dir: ./dist/
           server-dir: /
           protocol: ftps
+          secure: true
