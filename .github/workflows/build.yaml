@@ -31,5 +31,5 @@ jobs:
           server: ${{ secrets.STRATO_HOST }}
           username: ${{ secrets.STRATO_USER }}
           password: ${{ secrets.STRATO_PASS }}
-          local-dir: ./dist
+          local-dir: ./dist/
           server-dir: / 
